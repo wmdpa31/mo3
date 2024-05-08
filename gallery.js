@@ -48,7 +48,7 @@ window.onload = () => {
       content: {
         title: "김봉수 ♥ 이윤정의 모바일 청첩장",
         description: "결혼식에 초대합니다♡",
-        imageUrl: "https://i.imgur.com/JWVYIiU.png",
+        imageUrl: "https://i.imgur.com/qClmchD.png",
         imageWidth: 1200,
         imageHeight: 630,
         link: {
