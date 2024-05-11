@@ -34,12 +34,12 @@ window.onload = () => {
     showMoreBtn.style.borderRadius = "15px";
   });
 
-  const galleryImages = document.querySelectorAll("#gallery img");
-  galleryImages.forEach((img) => {
-    img.onclick = () => {
-      img.classList.toggle("full");
-    };
-  });
+  // const galleryImages = document.querySelectorAll("#gallery img");
+  // galleryImages.forEach((img) => {
+  //   img.onclick = () => {
+  //     img.classList.toggle("full");
+  //   };
+  // });
 
   const btnShareKa = document.querySelector(".shareKt");
   btnShareKa.addEventListener("click", () => {
@@ -52,16 +52,16 @@ window.onload = () => {
         imageWidth: 1200,
         imageHeight: 630,
         link: {
-          mobileWebUrl: "https://mo3.luvle.co.kr",
-          webUrl: "https://mo3.luvle.co.kr",
+          mobileWebUrl: "https://mo2.luvle.co.kr",
+          webUrl: "https://mo2.luvle.co.kr",
         },
       },
       buttons: [
         {
           title: "자세히 보기",
           link: {
-            mobileWebUrl: "https://mo3.luvle.co.kr",
-            webUrl: "https://mo3.luvle.co.kr",
+            mobileWebUrl: "https://mo2.luvle.co.kr",
+            webUrl: "https://mo2.luvle.co.kr",
           },
         },
       ],
@@ -80,9 +80,35 @@ window.onload = () => {
 
   // const btnShareFb = document.querySelector(".shareFb");
   // btnShareFb.addEventListener("click", () => {
-  //   const pageUrl = "mo1.luvle.co.kr/";
+  //   const pageUrl = "mo2.luvle.co.kr/";
   //   window.open(`http://www.facebook.com/sharer/sharer.php?u=${pageUrl}`);
   // });
+
+  const swiper = new Swiper(".swiper-container", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  const documentBody = document.querySelector("body");
+
+  const outsideModal = document.querySelector(".swiper");
+  outsideModal.addEventListener("click", function (event) {
+    if (event.target.classList.contains("swiper-slide")) {
+      outsideModal.style.display = "none";
+      documentBody.style.overflow = "auto";
+    }
+  });
+
+  const galleryImages = document.querySelectorAll("#gallery img");
+  galleryImages.forEach((img, index) => {
+    img.onclick = () => {
+      swiper.slideTo(index);
+      outsideModal.style.display = "block";
+      documentBody.style.overflow = "hidden";
+    };
+  });
 
   const shareViaSMSBtn = document.querySelector(".shareTwoG");
   shareViaSMSBtn.addEventListener("click", () => {
